@@ -7,7 +7,6 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './frontend/entries/index.js',
-    app: './frontend/entries/app.js'
   },
   output: {
     path: path.resolve(__dirname, 'public', 'dist'),
@@ -47,6 +46,7 @@ module.exports = {
 
   devServer: {
     contentBase: path.join(__dirname, 'public'),
+    publicPath: '/dist/',
     hot: true
   }
 }
