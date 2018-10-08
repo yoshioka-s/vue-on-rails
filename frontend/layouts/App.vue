@@ -5,11 +5,19 @@
 </template>
 
 <script>
+import 'regenerator-runtime/runtime'
+import axios from 'axios'
+
 export default {
   name: 'App',
   data () {
     return {
     }
+  },
+  async created () {
+    const res = await axios.get('localhost:3000/api')
+    this.code = res.code
+    this.message = res.message
   },
   computed: {
   },
