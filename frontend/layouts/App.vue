@@ -10,19 +10,16 @@ import axios from 'axios'
 
 export default {
   name: 'App',
-  data () {
-    return {
-    }
+  data() {
+    return {}
   },
-  async created () {
+  async created() {
     const res = await axios.get('localhost:3000/api')
     this.code = res.code
     this.message = res.message
   },
-  computed: {
-  },
-  methods: {
-  }
+  computed: {},
+  methods: {}
 }
 </script>
 

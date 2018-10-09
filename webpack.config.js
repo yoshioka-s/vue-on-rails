@@ -1,50 +1,53 @@
 'use strict'
 const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   mode: 'development',
   entry: {
-    index: './frontend/entries/index.js',
+    index: './frontend/entries/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'public', 'dist'),
-    filename: '[name].js',
+    filename: '[name].js'
   },
 
   module: {
-    rules: [{
-      test: /\.vue$/,
-      use: 'vue-loader'
-    }, {
-      test: /\.sass$/,
-      use: ['vue-style-loader', 'css-loader', 'sass-loader']
-    }, {
-      test: /\.css$/,
-      use: ['vue-style-loader', 'css-loader']
-    }, {
-      test: /\.js$/,
-      enforce: "pre",
-      exclude: /node_modules/,
-      use: {
-        loader: 'eslint-loader',
-      }
-    }, {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
+    rules: [
+      {
+        test: /\.vue$/,
+        use: 'vue-loader'
+      },
+      {
+        test: /\.sass$/,
+        use: ['vue-style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.css$/,
+        use: ['vue-style-loader', 'css-loader']
+      },
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        use: {
+          loader: 'eslint-loader'
+        }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
         }
       }
-    }]
+    ]
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new VueLoaderPlugin()
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin(), new VueLoaderPlugin()],
 
   stats: {
     colors: true
