@@ -24,3 +24,7 @@
 
 /node_modules
 /public/dist
+
+/postgresql
+/redis-data
+/.docker-sync
