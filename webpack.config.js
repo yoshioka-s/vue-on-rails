@@ -13,11 +13,27 @@ module.exports = {
     filename: '[name].js'
   },
 
+  resolve: {
+    modules: ['node_modules', path.resolve(__dirname, 'frontend')],
+  },
+
   module: {
     rules: [
       {
         test: /\.vue$/,
         use: 'vue-loader'
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: true
+            }
+          }
+        ]
       },
       {
         test: /\.sass$/,
@@ -26,6 +42,14 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['vue-style-loader', 'css-loader']
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
       },
       {
         test: /\.js$/,
@@ -53,8 +77,12 @@ module.exports = {
     colors: true
   },
   devtool: 'source-map',
+  watchOptions: {
+    ignored: /node_modules/
+  },
 
   devServer: {
+    host: '0.0.0.0',
     contentBase: path.join(__dirname, 'public'),
     publicPath: '/dist/',
     hot: true

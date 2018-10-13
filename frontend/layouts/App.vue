@@ -1,22 +1,23 @@
 <template>
   <div>
     <h1>Vue on Rails!! Imejin</h1>
+    <p>{{ message }}</p>
   </div>
 </template>
 
 <script>
-import 'regenerator-runtime/runtime'
-import axios from 'axios'
+import axios from '../plugins/axios'
 
 export default {
   name: 'App',
   data() {
-    return {}
+    return {
+      message: ''
+    }
   },
   async created() {
-    const res = await axios.get('localhost:3000/api')
-    this.code = res.code
-    this.message = res.message
+    const res = await axios.get('api')
+    this.message = res.data.message
   },
   computed: {},
   methods: {}
