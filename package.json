@@ -1,5 +1,5 @@
 {
-  "name": "vue-on-rails",
+  "name": "prologue",
   "version": "1.0.0",
   "depickscription": "This README would normally document whatever steps are necessary to get the application up and running.",
   "private": true,
@@ -21,7 +21,6 @@
     "babel-eslint": "^8.2.6",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
-    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.19.1",
     "eslint-config-prettier": "^3.1.0",
     "eslint-loader": "^2.1.1",
@@ -44,10 +43,5 @@
     "regenerator": "^0.13.2",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
